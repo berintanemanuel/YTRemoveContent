@@ -1,0 +1,18 @@
+{
+  "manifest_version": 3,
+  "name": "YTRemoveContent",
+  "version": "1.0",
+  "description": "Removes shorts from youtube on web",
+  "content_scripts": [
+    {
+        "matches": ["https://www.youtube.com/*"],
+        "js": ["scripts/remove-shorts.js"] 
+    }
+  ],
+  "icons": {
+    "16": "assets/logo.png",
+    "32": "assets/logo.png",
+    "48": "assets/logo.png",
+    "128": "assets/logo.png"
+  }
+}
