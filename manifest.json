@@ -6,9 +6,19 @@
   "content_scripts": [
     {
         "matches": ["https://www.youtube.com/*"],
-        "js": ["scripts/remove-shorts.js"] 
+        "js": ["scripts/remove-shorts.js", "scripts/remove-keywords.js"] 
     }
   ],
+  "web_accessible_resources": [
+    {
+      "resources": [
+        "data/keywords.json"
+      ],
+      "matches": [
+        "https://www.youtube.com/*"
+      ]
+    }
+  ], 
   "icons": {
     "16": "assets/logo.png",
     "32": "assets/logo.png",

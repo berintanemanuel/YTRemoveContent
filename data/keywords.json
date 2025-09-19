@@ -1,3 +1,6 @@
 {
-    
+    "default": {
+        "active": true,
+        "words": []
+    }
 }
