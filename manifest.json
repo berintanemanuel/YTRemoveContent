@@ -12,7 +12,8 @@
   "web_accessible_resources": [
     {
       "resources": [
-        "data/keywords.json"
+        "data/keywords.json",
+        "data/creators.json"
       ],
       "matches": [
         "https://www.youtube.com/*"
