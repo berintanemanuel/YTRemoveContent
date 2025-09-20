@@ -8,15 +8,46 @@ async function getKeywordsData(){
 }   
 
 const removeAllVideosContainingKeywordInHomePage = (word) => {
+    try{
+        word = word.toLowerCase();
+    } catch(err){
+        return;
+    }
     document.querySelectorAll("a>span.yt-core-attributed-string").forEach(elem => {
         const content = elem.textContent.toLowerCase();
         if(content.indexOf(word) !== -1){
             // We have found a video with a title that contains this keyword so we remove it
-            while(elem != null && elem.tagName.toLowerCase() != 'ytd-rich-item-renderer' && elem.tagName != 'html'){
-            elem = elem.parentNode;
+            try{
+                while(elem != null && elem.tagName.toLowerCase() != 'ytd-rich-item-renderer' && elem.tagName != 'html'){
+                elem = elem.parentNode;
+                }
+                if(elem.tagName.toLowerCase() != "ytd-rich-item-renderer") return; // Make sure we do not delete something else in case the correct tag was not found
+                elem.remove();
+            } catch(err){
+                return;
             }
-            if(elem.tagName.toLowerCase() != "ytd-rich-item-renderer") return; // Make sure we do not delete something else in case the correct tag was not found
-            elem.remove();
+        }
+    });
+}
+
+const removeAllVideosContainingKeywordInResultsPage = (word) => {
+    try{
+        word = word.toLowerCase();
+    } catch(err){
+        return;
+    }
+    document.querySelectorAll("a>yt-formatted-string.ytd-video-renderer").forEach(elem => {
+        const content = elem.textContent.toLowerCase();
+        if(content.indexOf(word) !== -1){
+            try{
+                while(elem != null && elem.tagName.toLowerCase() != 'ytd-video-renderer' && elem.tagName != 'html'){
+                elem = elem.parentNode;
+                }
+                if(elem.tagName.toLowerCase() != "ytd-video-renderer") return; // Make sure we do not delete something else in case the correct tag was not found
+                elem.remove();
+            } catch(err){
+                return;
+            }
         }
     });
 }
@@ -27,6 +58,7 @@ async function removeVideosWithKeywordsInTitle(){
         if(keywordsData[groupName].active === false) continue;
         for(const word of keywordsData[groupName].words){
             removeAllVideosContainingKeywordInHomePage(word);
+            removeAllVideosContainingKeywordInResultsPage(word);
         }
     }
 }

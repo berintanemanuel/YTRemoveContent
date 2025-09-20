@@ -1,10 +1,14 @@
 const removeAllSmallShortsResults = () => {
     document.querySelectorAll('badge-shape[aria-label="Shorts"]').forEach(el => {
-        while(el != null && el.tagName.toLowerCase() != 'ytd-video-renderer' && el.tagName != 'html'){
+        try{
+            while(el != null && el.tagName.toLowerCase() != 'ytd-video-renderer' && el.tagName != 'html'){
             el = el.parentNode;
+            }
+            if(el.tagName.toLowerCase() != "ytd-video-renderer") return; // Make sure we do not delete something else in case the correct tag was not found
+            el.remove();
+        } catch(err){
+            return;
         }
-        if(el.tagName.toLowerCase() != "ytd-video-renderer") return; // Make sure we do not delete something else in case the correct tag was not found
-        el.remove();
     });
 }
 
