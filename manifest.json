@@ -6,7 +6,7 @@
   "content_scripts": [
     {
         "matches": ["https://www.youtube.com/*"],
-        "js": ["scripts/remove-shorts.js", "scripts/remove-keywords.js"] 
+        "js": ["scripts/remove-shorts.js", "scripts/remove-keywords.js", "scripts/remove-creators.js"] 
     }
   ],
   "web_accessible_resources": [
