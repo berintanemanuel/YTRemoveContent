@@ -20,3 +20,5 @@ How to remove videos containing certain keywords in their title:
 5. Refresh the youtube page and you're done! 
 (If it doesn't work, you most probably did something wrong, but first try to refresh the   extension in the extension manager.)
 
+How to remove videos from certain channels:
+See tutorial for removing videos containing keywords in title (found above). Same procedure, but the file is "data/creators.json" and the creators should be written in the "creators" list of each group.
