@@ -1,6 +1,6 @@
 {
     "DEFAULT": {
-        "active": false,
+        "active": true,
         "words": []
     }
 }
