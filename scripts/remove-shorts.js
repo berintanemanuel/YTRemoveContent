@@ -18,6 +18,11 @@ const removeShortsFromPage = () => {
     removeAllSmallShortsResults();
 }
 
+// Comment the code below if you want to enable shorts (To comment the code write /* on the next line and */ on the last line of the file,
+// after all the content.)
+
+removeShortsFromPage();
+
 const observer = new MutationObserver(removeShortsFromPage);
 
 observer.observe(document.body, {
@@ -25,4 +30,14 @@ observer.observe(document.body, {
     subtree: true
 });
 
+//Disabled code should look like this:
+/*
 removeShortsFromPage();
+
+const observer = new MutationObserver(removeShortsFromPage);
+
+observer.observe(document.body, {
+    childList: true,
+    subtree: true
+});
+*/

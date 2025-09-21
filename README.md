@@ -8,7 +8,7 @@ How to install:
 2. In Chrome extensions manager, select "Load unpacked".
 3. Select the directory you have extracted the project to. Done!
 
-Shorts are removed by default
+Shorts are removed by default, they can be enabled by commenting the disabling code in the file scripts/remove-shorts.js. Instruction are also provided in the specific file.
 
 How to remove videos containing certain keywords in their title:
 1. Go to data/keywords.json
