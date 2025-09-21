@@ -15,6 +15,7 @@ const removeAllSmallShortsResults = () => {
 const removeShortsFromPage = () => {
     document.querySelectorAll("ytd-rich-section-renderer").forEach(el => el.remove()); /// Shorts sections on home page
     document.querySelectorAll("grid-shelf-view-model").forEach(el => el.remove()); /// Shorts sections on results page
+    document.querySelectorAll("ytd-reel-shelf-renderer").forEach(el => el.remove()); /// Shorts from sidebar on a video
     removeAllSmallShortsResults();
 }
 

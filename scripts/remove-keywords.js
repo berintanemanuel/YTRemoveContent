@@ -52,6 +52,29 @@ const removeAllVideosContainingKeywordInResultsPage = (word) => {
     });
 }
 
+const removeAllVideosContainingKeywordInVideoSidebar = (word) => {
+    try{
+        word = word.toLowerCase();
+    } catch(err){
+        return;
+    }
+    document.querySelectorAll("a.yt-lockup-metadata-view-model__title>span.yt-core-attributed-string").forEach(elem => {
+        const content = elem.textContent.toLowerCase().split(/[:;,.\"\'\(\)\/\\\[\] ]/);
+        if(content.includes(word)){
+            // We have found a video with a title that contains this keyword so we remove it
+            try{
+                while(elem != null && elem.tagName.toLowerCase() != 'yt-lockup-view-model' && elem.tagName != 'html'){
+                elem = elem.parentNode;
+                }
+                if(elem.tagName.toLowerCase() != "yt-lockup-view-model") return; // Make sure we do not delete something else in case the correct tag was not found
+                elem.remove();
+            } catch(err){
+                return;
+            }
+        }
+    });
+}
+
 async function removeVideosWithKeywordsInTitle(){
     const keywordsData = await getKeywordsData();
     for(const groupName in keywordsData){
@@ -59,6 +82,7 @@ async function removeVideosWithKeywordsInTitle(){
         for(const word of keywordsData[groupName].words){
             removeAllVideosContainingKeywordInHomePage(word);
             removeAllVideosContainingKeywordInResultsPage(word);
+            removeAllVideosContainingKeywordInVideoSidebar(word);
         }
     }
 }
