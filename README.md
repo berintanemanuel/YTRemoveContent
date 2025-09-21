@@ -1,5 +1,5 @@
 # YTRemoveContent
-Chrome extension that removes unwanted content from youtube:
+Chrome/Firefox extension that removes unwanted content from youtube:
 -Shorts
 -Videos containing unwanted words in their title
 
