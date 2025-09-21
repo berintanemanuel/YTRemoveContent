@@ -14,8 +14,8 @@ const removeAllVideosContainingKeywordInHomePage = (word) => {
         return;
     }
     document.querySelectorAll("a>span.yt-core-attributed-string").forEach(elem => {
-        const content = elem.textContent.toLowerCase();
-        if(content.indexOf(word) !== -1){
+        const content = elem.textContent.toLowerCase().split(/[:;,.\"\'\(\)\/\\\[\] ]/);
+        if(content.includes(word)){
             // We have found a video with a title that contains this keyword so we remove it
             try{
                 while(elem != null && elem.tagName.toLowerCase() != 'ytd-rich-item-renderer' && elem.tagName != 'html'){
@@ -37,8 +37,8 @@ const removeAllVideosContainingKeywordInResultsPage = (word) => {
         return;
     }
     document.querySelectorAll("a>yt-formatted-string.ytd-video-renderer").forEach(elem => {
-        const content = elem.textContent.toLowerCase();
-        if(content.indexOf(word) !== -1){
+        const content = elem.textContent.toLowerCase().split(/[:;,.\"\'\(\)\/\\\[\] ]/);
+        if(content.includes(word)){
             try{
                 while(elem != null && elem.tagName.toLowerCase() != 'ytd-video-renderer' && elem.tagName != 'html'){
                 elem = elem.parentNode;
