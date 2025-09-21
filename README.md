@@ -3,10 +3,15 @@ Chrome extension that removes unwanted content from youtube:
 -Shorts
 -Videos containing unwanted words in their title
 
-How to install:
+How to install: (Chrome)
 1. Download zip on github and extract it to a directory on your computer.
 2. In Chrome extensions manager, select "Load unpacked".
 3. Select the directory you have extracted the project to. Done!
+
+How to install: (Firefox)
+1. Go to about:debugging and from the left go to "This Firefox"
+2. In the "Temporary Extensions" section click "Load Temporary Add-on"
+3. In the directory you have extracted the project select the "manifest.json" file. Done!
 
 Shorts are removed by default, they can be enabled by commenting the disabling code in the file scripts/remove-shorts.js. Instruction are also provided in the specific file.
 
