@@ -53,6 +53,28 @@ const removeAllVideosByCreatorsInResultsPage = (creator) => {
     });
 }
 
+const removeAllVideosByCreatorsInVideoSidebar = (creator) => {
+    try{
+        creator = creator.toLowerCase();
+    } catch(err){
+        return;
+    }
+    document.querySelectorAll("div.yt-content-metadata-view-model__metadata-row>span.yt-core-attributed-string").forEach(elem => {
+        const content = elem.textContent.toLowerCase();
+        if(creator == content){
+            try{
+                while(elem != null && elem.tagName.toLowerCase() != 'yt-lockup-view-model' && elem.tagName != 'html'){
+                elem = elem.parentNode;
+                }
+                if(elem.tagName.toLowerCase() != "yt-lockup-view-model") return; // Make sure we do not delete something else in case the correct tag was not found
+                elem.remove();
+            } catch(err){
+                return;
+            }
+        }
+    });
+}
+
 async function removeVideosByGivenCreators(){
     const creatorsData = await getCreatorsData();
     for(const groupName in creatorsData){
@@ -60,6 +82,7 @@ async function removeVideosByGivenCreators(){
         for(const creator of creatorsData[groupName].creators){
             removeAllVideosByCreatorsInHomePage(creator);
             removeAllVideosByCreatorsInResultsPage(creator);
+            removeAllVideosByCreatorsInVideoSidebar(creator);
         }
     }
 }
