@@ -23,7 +23,7 @@ How to remove videos containing certain keywords in their title:
 4. In a group words list you can add as many words as you want. Words are considered case insensitive. A word can be in multiple active
    groups at the same time
 5. Refresh the youtube page and you're done! 
-(If it doesn't work, you most probably did something wrong, but first try to refresh the   extension in the extension manager.)
+(If it doesn't work, first try to refresh the extension in the extensions manager.)
 
 How to remove videos from certain channels:
 See tutorial for removing videos containing keywords in title (found above). Same procedure, but the file is "data/creators.json" and the creators should be written in the "creators" list of each group.
