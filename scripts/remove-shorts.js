@@ -1,3 +1,4 @@
+const REMOVE_SHORTS = true;
 const removeAllSmallShortsResults = () => {
     document.querySelectorAll('badge-shape[aria-label="Shorts"]').forEach(el => {
         try{
@@ -22,23 +23,14 @@ const removeShortsFromPage = () => {
 // Comment the code below if you want to enable shorts (To comment the code write /* on the next line and */ on the last line of the file,
 // after all the content.)
 
-removeShortsFromPage();
+if(REMOVE_SHORTS){
+    removeShortsFromPage();
 
-const observer = new MutationObserver(removeShortsFromPage);
+    const observer = new MutationObserver(removeShortsFromPage);
 
-observer.observe(document.body, {
-    childList: true,
-    subtree: true
-});
+    observer.observe(document.body, {
+        childList: true,
+        subtree: true
+    });
+}
 
-//Disabled code should look like this:
-/*
-removeShortsFromPage();
-
-const observer = new MutationObserver(removeShortsFromPage);
-
-observer.observe(document.body, {
-    childList: true,
-    subtree: true
-});
-*/
