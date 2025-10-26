@@ -20,9 +20,6 @@ const removeShortsFromPage = () => {
     removeAllSmallShortsResults();
 }
 
-// Comment the code below if you want to enable shorts (To comment the code write /* on the next line and */ on the last line of the file,
-// after all the content.)
-
 if(REMOVE_SHORTS){
     removeShortsFromPage();
 
